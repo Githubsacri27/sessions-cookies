@@ -5,7 +5,7 @@ session_start();
 $mensaje = '';
 // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
 if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== true) {
-    header('Location: login.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //notifico que los datos se han borrado de sesión 
         $_SESSION['mensaje_borrado'] = 'Datos de la sesión borrados';
         // Redirigir a la página de inicio de sesión con el mensaje
-        header('Location: login.php?mensaje_borrado=' . urlencode('Datos de la sesión borrados'));
+        header('Location: index.php?mensaje_borrado=' . urlencode('Datos de la sesión borrados'));
     }
     // Si se ha pulsado el botón de borrar cookie
     if (isset($_POST['borrarcookie'])) {
